@@ -11,7 +11,15 @@
     <h1>Welcome to the Great Number Game!</h1>
     <p>I am thinking of a number between 1 and 100</p>
     <p>Take a guess!</p>
-    {% if high %}
+    {% if request.session.counter >= 5 %}
+        <div class="gameOver">
+            <h1>Game Over! Try Again.</h1>
+            <form action="play_again" method="POST" id="again">
+                {% csrf_token %}
+                <button type="submit">Play Again!</button>
+            </form>
+        </div>
+    {% elif high %}
         <div class="high">
             <h1>Too High!</h1>
         </div>
@@ -21,7 +29,7 @@
         </div>
     {% elif correct %}
         <div class="correct">
-            <h1>{{ answer }} Was the Number! You Win!</h1>
+            <h1>{{ request.session.answer }} Was the Number! You Win!</h1>
             <form action="play_again" method="POST" id="again">
                 {% csrf_token %}
                 <button type="submit">Play Again!</button>

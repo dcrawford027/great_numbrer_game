@@ -29,7 +29,7 @@ h1, p {
     border-radius: 3px;
 }
 
-.high, .low, .correct {
+.high, .low, .correct, .gameOver {
     width: 300px;
     height: 150px;
     margin: 0 auto;
@@ -43,4 +43,8 @@ h1, p {
 
 .correct {
     background-color: green;
+}
+
+.gameOver {
+    background-color: Black;
 }
